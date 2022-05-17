@@ -1,4 +1,4 @@
-import {cardContainer,logoContainer} from './DOM-elements';
+import { cardContainer, logoContainer } from './DOM-elements.js';
 import logo from '../assets/logo.jpg';
 
 logoContainer.src = logo;
@@ -19,7 +19,7 @@ function displayCards(data) {
   cardContainer.appendChild(card);
 }
 
-export function displayChar(name) {
+export default function displayChar(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   fetch(url)
     .then((response) => response.json())
