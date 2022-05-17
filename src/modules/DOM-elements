@@ -1,0 +1,6 @@
+const cardContainer = document.querySelector('.card-container');
+const logoContainer = document.getElementById('logo');
+
+module.exports = {};
+module.exports.cardContainer = cardContainer;
+module.exports.logoContainer = logoContainer;
