@@ -1,5 +1,7 @@
 import './index.css';
-import logo from './assets/logo.jpg';
+import displayChar from './modules/display-items.js';
 
-const logoContainer = document.getElementById('logo');
-logoContainer.src = logo;
+const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
+pokemons.forEach((name) => {
+  displayChar(name);
+});
