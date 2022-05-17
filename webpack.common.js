@@ -20,7 +20,13 @@ module.exports = {
       { test: /\.css$/i, use: ['style-loader', 'css-loader'] },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        use: [{
+          loader: 'url-loader',
+          options: { 
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: 'images/[hash]-[name].[ext]'
+          } 
+      }]
       },
     ],
   },
