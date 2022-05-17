@@ -1,6 +1,6 @@
 import './index.css';
 import displayChar from './modules/display-items.js';
-import { modal, btn } from './modules/DOM-elements.js';
+import { modal } from './modules/DOM-elements.js';
 
 const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
 
