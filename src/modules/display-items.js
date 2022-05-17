@@ -1,12 +1,7 @@
-import * as domElements from './DOM-elements';
+import {cardContainer,logoContainer} from './DOM-elements';
 import logo from '../assets/logo.jpg';
 
-const {
-    cardContainer, logoContainer
-} = domElements;
-
 logoContainer.src = logo;
-const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
 
 function displayCards(data) {
   const imgUrl = data.sprites.other['official-artwork'].front_default;
@@ -24,18 +19,12 @@ function displayCards(data) {
   cardContainer.appendChild(card);
 }
 
-function displayChar(name) {
+export function displayChar(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       displayCards(data);
     })
-    .catch((err) => {
-      console.log('Pokemon not found', err);
-    });
+    .catch((err) => `Pokemon not found, ${err}`);
 }
-
-pokemons.forEach((name) => {
-  displayChar(name);
-});
