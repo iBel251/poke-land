@@ -15,7 +15,8 @@ const showComment = async (charname) => {
   const move = data.moves[0].move.name;
   const { name, weight, height } = data;
 
-  commentitemimg.setAttribute('src', imgUrl);
+  commentitemimg.src = imgUrl;
+  commentitemimg.alt = name;
   commentitemname.textContent = name;
   commentitemheight.textContent = `Height: ${height}`;
   commentitemmove.textContent = `Move: ${move}`;
