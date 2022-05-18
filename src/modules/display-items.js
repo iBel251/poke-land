@@ -1,10 +1,11 @@
 import { cardContainer, logoContainer, modal } from './DOM-elements.js';
 import logo from '../assets/logo.jpg';
 import showComment from './comments.js';
+import { getLike } from './display-likes';
 
 logoContainer.src = logo;
 
-function displayCards(data) {
+async function displayCards(data) {
   const imgUrl = data.sprites.other['official-artwork'].front_default;
   const type = data.types[0].type.name;
   const move = data.moves[0].move.name;
@@ -37,6 +38,11 @@ function displayCards(data) {
   });
 
   cardContainer.appendChild(card);
+  const likeDisplay = document.querySelectorAll('.likes');
+  let data2 = await getLike();
+  likeDisplay.forEach((list, index) => {
+    list.innerHTML = data2[index+1].likes + "likes";
+  })
 }
 
 export default function displayChar(name) {
@@ -48,3 +54,4 @@ export default function displayChar(name) {
     })
     .catch((err) => `Pokemon not found, ${err}`);
 }
+

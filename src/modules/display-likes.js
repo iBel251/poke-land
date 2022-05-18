@@ -21,7 +21,3 @@ export async function getLike() {
       },
     });
   }
-
-async function displayLike(data) {
-    const
-}
