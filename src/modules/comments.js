@@ -12,7 +12,7 @@ const showComment = async (charname) => {
   const pokey = await fetch(`https://pokeapi.co/api/v2/pokemon/${charname}`);
   const data = await pokey.json();
   const comments = await fetch(
-    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/comments/?item_id=${charname}`,
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/comments/?item_id=${charname}`
   );
 
   const comments2 = await comments.json();
@@ -28,7 +28,8 @@ const showComment = async (charname) => {
   const move = data.moves[0].move.name;
   const { name, weight, height } = data;
 
-  commentitemimg.setAttribute('src', imgUrl);
+  commentitemimg.src = imgUrl;
+  commentitemimg.alt = name;
   commentitemname.textContent = name;
   commentitemheight.textContent = `Height: ${height}`;
   commentitemmove.textContent = `Move: ${move}`;

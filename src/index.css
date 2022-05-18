@@ -160,6 +160,10 @@ li {
   align-self: center;
 }
 
+#ciimg {
+  display: block !important;
+}
+
 .commentitem-name {
   align-self: center;
 }
