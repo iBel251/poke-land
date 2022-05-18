@@ -1,57 +1,19 @@
-import { cardContainer, logoContainer, modal } from './DOM-elements.js';
-import logo from '../assets/logo.jpg';
-import showComment from './comments.js';
-import { getLike } from './display-likes';
+import { getLike } from './display-likes.js';
+import { cardContainer } from './DOM-elements.js';
 
-logoContainer.src = logo;
+const displayItem = (element) => {
+  cardContainer.innerHTML += `
+    <article class='card'>
+    <img id="card-img" src=${element.imgUrl} alt="">
+    <div class="name-heart">
+    <p>${element.name}</p>
+    <i class="fa-regular fa-heart"></i>
+    </div>
+    <div class="likes" data-charlike="${element.name}"></div>
+    <button type='button' class="comments" data-charname="${element.name}">Comments</button>
+    <button type='button' class="reservations">Reservations</button>
+    </article>
+    `;
+};
 
-async function displayCards(data) {
-  const imgUrl = data.sprites.other['official-artwork'].front_default;
-  const type = data.types[0].type.name;
-  const move = data.moves[0].move.name;
-  const { name, weight, height } = data;
-
-  const card = document.createElement('div');
-  card.dataset.name = name;
-  card.classList.add('card');
-  card.innerHTML = `<img id="card-img" src=${imgUrl} alt="">
-          <div class="name-heart">
-          <p>${name}</p>
-          <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="likes">5 likes</div>
-          <button type='button' class="comments">Comments</button>
-          <button type='button' class="reservations">Reservations</button>`;
-
-  card.children[3].addEventListener('click', () => {
-    showComment(name, imgUrl, height, weight, type, move);
-
-    const span = document.createElement('span');
-    span.innerHTML = '&times;';
-    span.classList.add('close');
-    span.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    modal.children[0].append(span);
-    modal.style.display = 'block';
-  });
-
-  cardContainer.appendChild(card);
-  const likeDisplay = document.querySelectorAll('.likes');
-  let data2 = await getLike();
-  likeDisplay.forEach((list, index) => {
-    list.innerHTML = data2[index+1].likes + "likes";
-  })
-}
-
-export default function displayChar(name) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      displayCards(data);
-    })
-    .catch((err) => `Pokemon not found, ${err}`);
-}
-
+export default displayItem;
