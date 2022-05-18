@@ -1,4 +1,3 @@
-import { getLikes } from './display-likes.js';
 import {
   commentitemheight,
   commentitemimg,

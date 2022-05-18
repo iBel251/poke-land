@@ -1,34 +1,31 @@
-import { likeDisplay } from './DOM-elements';
-
 const apiUrl =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/likes';
+  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/likes/';
 
 const getLikes = async () => {
-  const response = await fetch(apiUrl);
+  const response = await fetch(`${apiUrl}`);
   const data = await response.json();
-  likeDisplay.forEach((element) => {
-    console.log(element);
-  });
+  return Promise.all(data);
 };
 
-const getLike = (name) => {
-  const arr = getLikes().then((res) => {
-    arr.filter((element) => element.item_id === name);
-  });
-  return arr;
+const getLike = (id, likes) => {
+  if (likes.length > 0) {
+    const result = likes.find((like) => like.item_id === id);
+    return result ? result.likes : 0;
+  }
+  return 0;
 };
 
-const createLike = async (character) => {
-  const response = await fetch(apiUrl, {
+const postLike = async (movieId) => {
+  const response = await fetch(`${apiUrl}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      item_id: character,
+      item_id: movieId,
     }),
   });
   return response;
 };
 
-export { getLikes, createLike, getLike };
+export { getLikes, postLike, getLike };

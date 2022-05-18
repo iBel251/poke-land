@@ -1,6 +1,5 @@
 import addCommentListener from './commentsListener.js';
 import displayItem from './display-items.js';
-import { getLikes } from './display-likes.js';
 
 const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
 
@@ -13,7 +12,7 @@ const getCharacters = async () => {
     const move = p2.moves[0].move.name;
     const { name, weight, height } = p2;
 
-    displayItem({
+    await displayItem({
       name,
       imgUrl,
       weight,
@@ -22,7 +21,6 @@ const getCharacters = async () => {
       move,
     });
     if (index === 5) {
-      await getLikes();
       addCommentListener();
     }
   });
