@@ -181,3 +181,27 @@ li {
 .comments-ul {
   margin: 10px;
 }
+
+.addcomment-header {
+  margin: 0 auto;
+}
+
+.commentform {
+  margin: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.forminputname {
+  width: 50%;
+  padding: 5px;
+}
+
+#insights {
+  padding: 10px;
+}
+
+.submitBtn {
+  width: 50%;
+  padding: 10px;
+}
