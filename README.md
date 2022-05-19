@@ -11,6 +11,8 @@ Pokeland is a simple webapp bootstrapped with webpack that uses the pokeapi and 
 - JavaScript / ES6
 - Webpack
 
+<a href="https://www.youtube.com/watch?v=Ms3ZAqeil4A">View Demo</a>
+<a href="https://ibel251.github.io/poke-land/">Live Site</a>
 ## Getting Started
 
 ### Prerequisites
@@ -28,7 +30,6 @@ https://github.com/iBel251/poke-land
 ### Deployment
 
 - The project is deployed with Github pages.
-[link](https://ibel251.github.io/poke-land/)
 ## Authors
 
 👤 **Imran Belete**
