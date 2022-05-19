@@ -16,7 +16,7 @@ const showComment = async (charname) => {
   const pokey = await fetch(`https://pokeapi.co/api/v2/pokemon/${charname}`);
   const data = await pokey.json();
   const comments = await fetch(
-    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/comments/?item_id=${charname}`
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZoxDLHcPIRPn5ap2fi3h/comments/?item_id=${charname}`,
   );
 
   const comments2 = await comments.json();
@@ -39,6 +39,8 @@ const showComment = async (charname) => {
   commentitemmove.textContent = `Move: ${move}`;
   commentitemweight.textContent = `Weight: ${weight}`;
   commentitemtype.textContent = `Type: ${type}`;
+  yourname.value = '';
+  insights.value = '';
 };
 
 const postComment = async (commentData) => {
@@ -50,7 +52,7 @@ const postComment = async (commentData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(commentData),
-    }
+    },
   );
   return response;
 };

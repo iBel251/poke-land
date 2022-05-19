@@ -41,6 +41,4 @@ commentform.addEventListener('submit', async (e) => {
   await postComment({ item_id: itemid, username, comment });
 
   await showComment(itemid);
-  yourname.value = '';
-  insights.value = '';
 });
