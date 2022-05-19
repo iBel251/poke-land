@@ -1,3 +1,4 @@
+import countComments from './comment-count.js';
 import {
   commentitemheight,
   commentitemimg,
@@ -5,7 +6,10 @@ import {
   commentitemname,
   commentitemtype,
   commentitemweight,
+  commentscount,
   commentsul,
+  insights,
+  yourname,
 } from './DOM-elements.js';
 
 const showComment = async (charname) => {
@@ -16,10 +20,9 @@ const showComment = async (charname) => {
   );
 
   const comments2 = await comments.json();
-  const comments3 = await comments2;
 
   commentsul.innerHTML = '';
-  comments3.forEach((element) => {
+  comments2.forEach((element) => {
     commentsul.innerHTML += `<li>${element.creation_date} ${element.username}: ${element.comment}</li>`;
   });
 
@@ -27,7 +30,7 @@ const showComment = async (charname) => {
   const type = data.types[0].type.name;
   const move = data.moves[0].move.name;
   const { name, weight, height } = data;
-
+  commentscount.textContent = `(${countComments(comments2)})`;
   commentitemimg.src = imgUrl;
   commentitemimg.alt = name;
   commentitemname.textContent = name;
