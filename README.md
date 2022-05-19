@@ -28,7 +28,7 @@ https://github.com/iBel251/poke-land
 ### Deployment
 
 - The project is deployed with Github pages.
-
+[link](https://ibel251.github.io/poke-land/)
 ## Authors
 
 👤 **Imran Belete**
