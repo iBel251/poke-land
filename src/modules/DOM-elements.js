@@ -13,3 +13,4 @@ export const commentitemtype = document.querySelector('.commentitem-type');
 export const commentitemmove = document.querySelector('.commentitem-move');
 export const commentscount = document.querySelector('.comments-count');
 export const commentsul = document.querySelector('.comments-ul');
+export const characterCount = document.querySelector('.charater-count');
