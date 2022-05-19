@@ -1,21 +1,27 @@
-import { modal } from './DOM-elements.js';
+import {
+  commentitemheight,
+  commentitemimg,
+  commentitemmove,
+  commentitemname,
+  commentitemtype,
+  commentitemweight,
+} from './DOM-elements.js';
 
-const showComment = (name, imgsrc, height, weight, type, move) => {
-  const comment = `
-    <div class="modal-content">
-    <article class="commentitem">
-    <img src="${imgsrc}" alt="${name} class="commentitem-img">
-    <h2 class="commentitem-name">${name}</h2>
-    <ul class="commentitem-detail padding10">
-        <li>Height: ${height}</li>
-        <li>Weight: ${weight}</li>
-        <li>Type: ${type}</li>
-        <li>Move: ${move}</li>
-    </ul>
-</article>
-    </div>
-  `;
-  modal.innerHTML = comment;
+const showComment = async (charname) => {
+  const pokey = await fetch(`https://pokeapi.co/api/v2/pokemon/${charname}`);
+  const data = await pokey.json();
+  const imgUrl = data.sprites.other['official-artwork'].front_default;
+  const type = data.types[0].type.name;
+  const move = data.moves[0].move.name;
+  const { name, weight, height } = data;
+
+  commentitemimg.src = imgUrl;
+  commentitemimg.alt = name;
+  commentitemname.textContent = name;
+  commentitemheight.textContent = `Height: ${height}`;
+  commentitemmove.textContent = `Move: ${move}`;
+  commentitemweight.textContent = `Weight: ${weight}`;
+  commentitemtype.textContent = `Type: ${type}`;
 };
 
 export default showComment;

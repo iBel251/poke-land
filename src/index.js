@@ -1,15 +1,18 @@
 import './index.css';
-import displayChar from './modules/display-items.js';
-import { modal } from './modules/DOM-elements.js';
+import getCharacters from './modules/getCharacters.js';
+import { logoContainer, modal, span } from './modules/DOM-elements.js';
+import logo from './assets/logo.jpg';
 
-const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
+logoContainer.src = logo;
 
-pokemons.forEach((name) => {
-  displayChar(name);
-});
+getCharacters();
 
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
   }
+});
+
+span.addEventListener('click', () => {
+  modal.style.display = 'none';
 });
