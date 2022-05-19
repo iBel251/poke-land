@@ -1,3 +1,4 @@
+import countCharacter from './charactercounter.js';
 import addCommentListener from './commentsListener.js';
 import displayItem from './display-items.js';
 import { characterCount } from './DOM-elements.js';
@@ -5,6 +6,7 @@ import { characterCount } from './DOM-elements.js';
 export const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
 
 const getCharacters = async () => {
+  characterCount.textContent = `(${countCharacter(pokemons)})`;
   pokemons.forEach(async (element, index) => {
     const p1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${element}`);
     const p2 = await p1.json();
@@ -26,10 +28,5 @@ const getCharacters = async () => {
     }
   });
 };
-
-export function counter() {
-  const count = pokemons.length;
-  characterCount.innerHTML = `(${count})`;
-}
 
 export default getCharacters;
