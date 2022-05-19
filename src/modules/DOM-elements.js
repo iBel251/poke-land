@@ -17,3 +17,4 @@ export const commentform = document.querySelector('.commentform');
 export const yourname = document.querySelector('#yourname');
 export const insights = document.querySelector('#insights');
 export const submitBtn = document.querySelector('.submitBtn');
+export const characterCount = document.querySelector('.charater-count');

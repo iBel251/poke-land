@@ -1,5 +1,4 @@
 import './index.css';
-import getCharacters from './modules/getCharacters.js';
 import {
   logoContainer,
   modal,
@@ -8,6 +7,7 @@ import {
   yourname,
   insights,
 } from './modules/DOM-elements.js';
+import getCharacters, { counter } from './modules/getCharacters.js';
 import logo from './assets/logo.jpg';
 import { addLike, updateLikes } from './modules/add-likes.js';
 import { postComment, showComment } from './modules/comments.js';
@@ -15,6 +15,7 @@ import { postComment, showComment } from './modules/comments.js';
 logoContainer.src = logo;
 
 getCharacters();
+counter();
 
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
