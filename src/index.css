@@ -173,3 +173,11 @@ li {
   grid-template-columns: 1fr 1fr;
   align-self: center;
 }
+
+.comments-header {
+  margin: 0 auto;
+}
+
+.comments-ul {
+  margin: 10px;
+}
