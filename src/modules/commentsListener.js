@@ -1,4 +1,4 @@
-import showComment from './comments.js';
+import { showComment } from './comments.js';
 import { modal } from './DOM-elements.js';
 
 const addCommentListener = () => {

@@ -13,3 +13,7 @@ export const commentitemtype = document.querySelector('.commentitem-type');
 export const commentitemmove = document.querySelector('.commentitem-move');
 export const commentscount = document.querySelector('.comments-count');
 export const commentsul = document.querySelector('.comments-ul');
+export const commentform = document.querySelector('.commentform');
+export const yourname = document.querySelector('#yourname');
+export const insights = document.querySelector('#insights');
+export const submitBtn = document.querySelector('.submitBtn');
