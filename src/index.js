@@ -38,6 +38,9 @@ commentform.addEventListener('submit', async (e) => {
   const itemid = e.target.parentNode.children[1].dataset.id;
   const username = yourname.value;
   const comment = insights.value;
-  await postComment(itemid, comment, username);
-  await showComment();
+  await postComment({ item_id: itemid, username, comment });
+
+  await showComment(itemid);
+  yourname.textContent = '';
+  insights.textContent = '';
 });
