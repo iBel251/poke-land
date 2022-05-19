@@ -1,7 +1,8 @@
 import addCommentListener from './commentsListener.js';
 import displayItem from './display-items.js';
+import { characterCount } from './DOM-elements.js';
 
-const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
+export const pokemons = ['pikachu', 'bulbasaur', 'venusaur', 'pidgeot', 'butterfree', 'spearow'];
 
 const getCharacters = async () => {
   pokemons.forEach(async (element, index) => {
@@ -25,5 +26,10 @@ const getCharacters = async () => {
     }
   });
 };
+
+export function counter() {
+  const count = pokemons.length;
+  characterCount.innerHTML = `(${count})`;
+}
 
 export default getCharacters;
