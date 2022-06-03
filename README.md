@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Poke-land - Capstone Project Project
+# Poke-land - Capstone Project
 
 Pokeland is a simple webapp bootstrapped with webpack that uses the pokeapi and interaction api to display characters from the pokemon game.
 
